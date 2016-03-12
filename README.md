@@ -1,4 +1,2 @@
 # ToolBox-AlgorithmicMusic
-Algorithmic Music Composition Project Toolbox starter code
-
-Full instructions at https://sites.google.com/site/sd16spring/home/project-toolbox/algorithmic-music-composition
+This part of the toolbox should be mostly standard. The code produces a blues music snippet using licks. To make it cooler, I made it swing and made sure that it did not hammer the bottom or top notes.
