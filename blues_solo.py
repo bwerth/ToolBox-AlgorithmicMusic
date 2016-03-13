@@ -37,12 +37,17 @@ add_note(solo, bass, blues_scale[curr_note], 1.0, beats_per_minute, 1.0)
 licks = [ [ [1,0.5*.7], [1,0.5*.9], [1, 0.5*.7], [1, 0.5*.9] ] , [ [-1,.5*.7],[-1,.5*.9],[-1,.5*.7],[-1,.5*.9] ] , [ [2,.5*.7],[2,.5*.9],[2,.5*.7],[2,.5*.9] ] , [ [-2,.5*.7],[-2,.5*.9],[-2,.5*.7],[-2,.5*.9] ] ]
 for i in range(4):
     lick = choice(licks)
+    notenum = -1
     for note in lick:
+        notenum += 1
         curr_note += note[0]
         if curr_note<=0:
             curr_note = 0
+            add_note(solo, bass, blues_scale[curr_note], 4-notenum, beats_per_minute, 1.0)
         elif curr_note>=len(blues_scale)-1:
             curr_note = len(blues_scale)-1
-        add_note(solo, bass, blues_scale[curr_note], note[1], beats_per_minute, 1.0)
+            add_note(solo, bass, blues_scale[curr_note], 4-notenum, beats_per_minute, 1.0)
+        else:
+            add_note(solo, bass, blues_scale[curr_note], note[1], beats_per_minute, 1.0)
 
 solo >> "blues_solo.wav"
